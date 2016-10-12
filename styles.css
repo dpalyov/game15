@@ -1,0 +1,70 @@
+
+div.Tile {
+    text-align: center;
+    width: 		150px;
+    height:		150px;
+    position: absolute;
+    line-height: 150px;
+    font-family: 'calibri','trebuchet ms','arial';
+    font-size: 50px;
+    background: #0096D6;
+    color: #FFFFFF;
+}
+
+div {
+    text-align: center;
+    width: 		150px;
+    height:		150px;
+    position: absolute;
+    line-height: 150px;
+    font-family: 'calibri','trebuchet ms','arial';
+    font-size: 50px;
+    background: #0096D6;
+    color: #FFFFFF;
+}
+
+div:hover {
+    background: #008B2B;
+    cursor: pointer;
+}
+
+div.Finish {
+    position:absolute;
+    left: 0px;
+    top: 0px;
+    width: 600px;
+    height: 600px;
+    border: 5px black dashed;
+    background: #008B2B;
+    z-index: 10;
+    visibility:hidden;
+    text-align:center;
+    padding-top: 75px;
+    font-size: 35px;
+}
+
+
+table {
+    background: #0096D6;
+    font-family: 'calibri','trebuchet ms','arial';
+    font-size: 25px;
+    color: white;
+    width: 500px;
+    position:absolute;
+    left: 700px;
+}
+
+table.Scores {
+    top: 100px;
+}
+
+table.Diff {
+    top: 50px;
+}
+
+td {
+    text-align: center;
+    border-bottom: dashed 1px white;
+    border-right: dashed 1px white;
+    border-left: dashed 1px white;
+}
