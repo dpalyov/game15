@@ -43,28 +43,3 @@ div.Finish {
     font-size: 35px;
 }
 
-
-table {
-    background: #0096D6;
-    font-family: 'calibri','trebuchet ms','arial';
-    font-size: 25px;
-    color: white;
-    width: 500px;
-    position:absolute;
-    left: 700px;
-}
-
-table.Scores {
-    top: 100px;
-}
-
-table.Diff {
-    top: 50px;
-}
-
-td {
-    text-align: center;
-    border-bottom: dashed 1px white;
-    border-right: dashed 1px white;
-    border-left: dashed 1px white;
-}

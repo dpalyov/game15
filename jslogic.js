@@ -1,7 +1,6 @@
 
 let gameSize = 4;
 let hole = {x: gameSize, y: gameSize};
-let numClicks = 0;
 
 drawGrid();
 randomizeGrid();
@@ -46,10 +45,6 @@ function tryMove(name, loc, speed) {
         hole.x = elX;
         hole.y = elY;
 
-        if (speed != 0 ) {
-            numClicks += 1;
-        }
-
         return true;
     } else {
         return false;
@@ -86,7 +81,7 @@ function checkEnd() {
     });
 
     if (isEnd == true) {
-        $("div.Tile").stop(true,true);
+        $("div.Tile").stop(true);
 
         alert("Game Over!");
 
