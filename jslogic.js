@@ -1,15 +1,11 @@
-/**
- * Created by panayoni on 12/10/2016.
- */
+
 let gameSize = 4;
 let hole = {x: gameSize, y: gameSize};
 let numClicks = 0;
-let arrScores = [];
 
 drawGrid();
 randomizeGrid();
 
-let startDate = new Date();
 
 function drawGrid() {
     let counter = 0;
@@ -36,12 +32,7 @@ function randomizeGrid() {
             i++;
         }
     }
-
-    //start the timer and clear the counters
-    //refreshScores();
-
-    //let startDate = new Date();
-    //var numClicks = 0;
+    
 }
 
 function tryMove(name, loc, speed) {
@@ -78,18 +69,13 @@ $("div.Tile").click(function() {
     checkEnd();
 });
 
-//			function refreshScores() {
-//				getResults();
-//				$("table").css("left",((gameSize+1)*150)-75 + "px");
-//			}
-
 function checkEnd() {
     let isEnd = true;
     let elX = 0;
     let elY = 0;
     let elVal = 0;
 
-    $("div.Tile").each(function(i, obj) {
+    $("div.Tile").each(function() {
         elY = parseInt($(this).attr("id").split("_")[0]);
         elX = parseInt($(this).attr("id").split("_")[1]);
         elVal = parseInt($(this).attr("name").split("_")[1]);
@@ -102,14 +88,8 @@ function checkEnd() {
     if (isEnd == true) {
         $("div.Tile").stop(true,true);
 
-        //let endDate = new Date();
-
-        //let TotalTimeStr = ((Math.abs(endDate - startDate))/1000)
-
         alert("Game Over!");
 
-        //AddListItem(numClicks,TotalTimeStr);
-
-        //refreshScores();
+       
     }
 }
