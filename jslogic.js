@@ -64,3 +64,52 @@ function tryMove(name, loc, speed) {
         return false;
     }
 }
+
+//mouse over effects
+$("div.Tile").mouseover(function() {
+    $(this).animate( {fontSize: "65px"}, 100)
+}).mouseout(function () {
+    $(this).animate({fontSize: "45px"}, 100)
+});
+
+//mouse click effects
+$("div.Tile").click(function() {
+    tryMove($(this).attr("name"),$(this).attr("id"),150);
+    checkEnd();
+});
+
+//			function refreshScores() {
+//				getResults();
+//				$("table").css("left",((gameSize+1)*150)-75 + "px");
+//			}
+
+function checkEnd() {
+    let isEnd = true;
+    let elX = 0;
+    let elY = 0;
+    let elVal = 0;
+
+    $("div.Tile").each(function(i, obj) {
+        elY = parseInt($(this).attr("id").split("_")[0]);
+        elX = parseInt($(this).attr("id").split("_")[1]);
+        elVal = parseInt($(this).attr("name").split("_")[1]);
+
+        if ((((elY-1)*gameSize)+elX) != elVal) {
+            isEnd = false;
+        }
+    });
+
+    if (isEnd == true) {
+        $("div.Tile").stop(true,true);
+
+        //let endDate = new Date();
+
+        //let TotalTimeStr = ((Math.abs(endDate - startDate))/1000)
+
+        alert("Game Over!");
+
+        //AddListItem(numClicks,TotalTimeStr);
+
+        //refreshScores();
+    }
+}
