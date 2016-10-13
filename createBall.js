@@ -1,11 +1,11 @@
-(function animteBall() {
-
-
-    ctx.fillStyle = 'red';
-    let ball = {x: 5, y: 4};
+function animteBall() {
+    let canvas = document.getElementById("canvas");
+    let ctx = canvas.getContext("2d");
+    ctx.strokeStyle = 'black';
+    ctx.fillStyle = 'orange';
+    let ball = {x: 0, y: 0};
     let live = false;
-
-    //let timer = setInterval(createBall,15);
+    let speed = 5;  // speed of ball
     let  dirX = true; // move to right
     let  dirY = true; // move to down
 
@@ -14,12 +14,9 @@
     let targetFound = false;
 
     window.addEventListener('click', () => {
-        targetX = event.clientX - event.clientX%5;
-        console.log(targetX);
+        targetX = event.clientX - event.clientX%speed;
+        targetY = event.clientY - event.clientY%speed;
 
-        targetY = event.clientY - event.clientY%4;
-        console.log(targetY)
-        console.log(live);
         if(!live) {
             live = true;
             targetFound = false;
@@ -27,49 +24,47 @@
         }
     });
 
-
     // createBall();
-
     function createBall() {
-        ctx.clearRect(0, 0, 800, 600);
-
+        ctx.clearRect(0, 0, 600, 600);
+        ball.x -= ball.x %speed;
+        ball.y -= ball.y %speed;
         ctx.beginPath();
-        ctx.arc(ball.x, ball.y, 30, 0, Math.PI * 2);
+        ctx.arc(ball.x, ball.y, 40, 0, Math.PI * 2);
+        ctx.stroke();
         ctx.fill();
 
         if ( dirX ) {
-            ball.x += 5;
+            ball.x += speed;
             if (ball.x >= targetX)
                 dirX  = false;
         } else {
-            ball.x -= 5;
+            ball.x -= speed;
             if (ball.x <= targetX)
                 dirX  = true;
         }
 
         if ( dirY ) {
-            ball.y += 4;
+            ball.y += speed;
             if (ball.y >= targetY)
                 dirY  = false;
         } else {
-            ball.y -= 4;
+            ball.y -= speed;
             if (ball.y <= targetY )
                 dirY  = true;
 
         }
 
-        if(ball.x == targetX && ball.y == targetY){
+        if((ball.x == targetX || ball.x == targetX + speed  || ball.x == targetX - speed )
+            && (ball.y == targetY || ball.y == targetY + speed ||ball.y == targetY -speed  )){
             targetFound = true;
             live = false;
-            console.log(ball);
         }
-
 
         if(!targetFound) {
             requestAnimationFrame(createBall);
         }
 
     }
-
-
-})();
+}
+animteBall();
